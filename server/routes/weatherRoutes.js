@@ -1,0 +1,10 @@
+const express = require("express");
+const router = express.Router();
+
+const { getWeather } = require("../controllers/weatherController");
+const protect = require("../middleware/authMiddleware");
+
+// Fetch live weather and personalized recommendations
+router.get("/", protect, getWeather);
+
+module.exports = router;
